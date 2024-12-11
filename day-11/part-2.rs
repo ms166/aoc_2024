@@ -10,10 +10,6 @@ use std::future::pending;
 use std::i32;
 use std::io::stdin;
 
-fn nc2(n: i64) -> i64 {
-    return n * (n + 1) / 2;
-}
-
 fn main() {
     let mut input = String::new();
     let _ = stdin().read_line(&mut input);
