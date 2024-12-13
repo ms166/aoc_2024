@@ -15,8 +15,7 @@ fn main() {
     for (index, c) in input.chars().enumerate() {
         if index % 2 == 0 {
             f.push((c as i32 - '0' as i32, index as i32 / 2));
-        }
-        else {
+        } else {
             f.push((c as i32 - '0' as i32, -1));
         }
     }
@@ -29,11 +28,10 @@ fn main() {
             break;
         }
         if l % 2 == 0 {
-           res.push(f[l]);
-           l += 1; 
-           continue;
-        }
-        else {
+            res.push(f[l]);
+            l += 1;
+            continue;
+        } else {
             if r % 2 == 0 {
                 let mn = min(f[l].0, f[r].0);
                 f[l].0 -= mn;
@@ -42,29 +40,26 @@ fn main() {
                     res.push((mn, f[r].1));
                     l += 1;
                     continue;
-                }
-                else if f[r].0 == 0 {
+                } else if f[r].0 == 0 {
                     res.push((mn, f[r].1));
                     r -= 1;
                     continue;
                 } else {
                     panic!("asdf");
                 }
-            }
-            else {
+            } else {
                 r -= 1;
                 continue;
             }
         }
     }
     let mut ans: i64 = 0;
-    let mut last: i64= 0;
+    let mut last: i64 = 0;
     for (_, v) in res.iter().enumerate() {
         if last == 0 {
             ans += v.1 as i64 * nc2((v.0 - 1) as i64) as i64;
-        }
-        else {
-            ans += v.1 as i64 * (nc2((last + (v.0-1) as i64) as i64) - nc2(last-1));
+        } else {
+            ans += v.1 as i64 * (nc2((last + (v.0 - 1) as i64) as i64) - nc2(last - 1));
         }
         last += v.0 as i64;
     }

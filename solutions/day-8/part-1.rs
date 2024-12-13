@@ -16,8 +16,7 @@ fn main() {
     for i in 0..n {
         for j in 0..m {
             if grid[i][j] != '.' {
-                pos
-                    .entry(grid[i][j])
+                pos.entry(grid[i][j])
                     .and_modify(|f| {
                         f.push((i as i32, j as i32));
                     })
@@ -26,9 +25,9 @@ fn main() {
         }
     }
     let mut hs: HashSet<(i32, i32)> = HashSet::new();
-    for (c,v) in pos.iter() {
-        for i in 0..v.len()-1 {
-            for j in i+1..v.len() {
+    for (c, v) in pos.iter() {
+        for i in 0..v.len() - 1 {
+            for j in i + 1..v.len() {
                 let dx = v[i].0 - v[j].0;
                 let dy = v[i].1 - v[j].1;
                 let p1 = (v[i].0 + dx, v[i].1 + dy);
@@ -41,7 +40,7 @@ fn main() {
                     hs.insert(p1);
                     cur_pair.push_str(&format!("({},{})", p1.0, p1.1).to_string());
                 }
-                if p2.0 >= 0 && p2.0 < n as i32 && p2.1 >= 0 && p2.1 < m as i32{
+                if p2.0 >= 0 && p2.0 < n as i32 && p2.1 >= 0 && p2.1 < m as i32 {
                     hs.insert(p2);
                     cur_pair.push_str(&format!("--({},{})", p2.0, p2.1).to_string());
                 }

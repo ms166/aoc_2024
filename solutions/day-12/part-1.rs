@@ -26,7 +26,7 @@ fn main() {
 const DX: [i32; 4] = [-1, 0, 0, 1];
 const DY: [i32; 4] = [0, -1, 1, 0];
 
-fn go(x: i32, y: i32, vis: &mut Vec<Vec<bool>>, grid: &Vec<Vec<char>>) -> (i32, i32){
+fn go(x: i32, y: i32, vis: &mut Vec<Vec<bool>>, grid: &Vec<Vec<char>>) -> (i32, i32) {
     let n = grid.len();
     let m = grid[0].len();
     vis[x as usize][y as usize] = true;
@@ -35,14 +35,20 @@ fn go(x: i32, y: i32, vis: &mut Vec<Vec<bool>>, grid: &Vec<Vec<char>>) -> (i32, 
     for i in 0..4 {
         let nx = x + DX[i];
         let ny = y + DY[i];
-        if nx >= 0 && nx < n as i32 && ny >= 0 && ny < m as i32 
-            && !vis[nx as usize][ny as usize] 
-            && grid[x as usize][y as usize] == grid[nx as usize][ny as usize] {
+        if nx >= 0
+            && nx < n as i32
+            && ny >= 0
+            && ny < m as i32
+            && !vis[nx as usize][ny as usize]
+            && grid[x as usize][y as usize] == grid[nx as usize][ny as usize]
+        {
             let (n_area, n_perimeter) = go(nx, ny, vis, grid);
             area += n_area;
             perimeter += n_perimeter;
         }
-        if !(nx >= 0 && nx < n as i32 && ny >= 0 && ny < m as i32) || grid[x as usize][y as usize] != grid[nx as usize][ny as usize] {
+        if !(nx >= 0 && nx < n as i32 && ny >= 0 && ny < m as i32)
+            || grid[x as usize][y as usize] != grid[nx as usize][ny as usize]
+        {
             perimeter += 1;
         }
     }

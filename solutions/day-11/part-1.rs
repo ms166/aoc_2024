@@ -12,25 +12,23 @@ fn main() {
     }
     println!("{}", ans);
 }
-fn go(mut n: i64, d: i32)-> i64{
+fn go(mut n: i64, d: i32) -> i64 {
     let num_digs = ((n as f64).log(10.0) as i64) + 1;
     if d == 25 {
         return 1;
     }
     if n == 0 {
         return go(1, d + 1);
-    }
-    else if num_digs % 2 == 0 {
+    } else if num_digs % 2 == 0 {
         let mut right = 0;
         let mut p = 1;
-        for _ in 0..num_digs/2 {
+        for _ in 0..num_digs / 2 {
             right = right + p * (n % 10);
             n /= 10;
             p *= 10;
         }
         return go(n, d + 1) + go(right, d + 1);
-    }
-    else {
+    } else {
         return go(n * 2024, d + 1);
     }
 }

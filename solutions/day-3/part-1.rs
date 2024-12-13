@@ -15,7 +15,7 @@ fn main() {
 
     let mul_string: Vec<char> = "mul(".chars().collect();
     let mut i = 0;
-    while i < s.len(){
+    while i < s.len() {
         let mut j = i;
         while j < s.len() && j - i < 4 && s[j] == mul_string[j - i] {
             j += 1;
@@ -23,8 +23,7 @@ fn main() {
         if j - i != 4 {
             if i == j {
                 i = i + 1;
-            }
-            else {
+            } else {
                 i = j;
             }
             continue;

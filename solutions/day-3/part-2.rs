@@ -16,12 +16,12 @@ fn main() {
     let mul_string: Vec<char> = "mul(".chars().collect();
     let mut i = 0;
     let mut enabled = true;
-    while i < s.len(){
-        if i + 7 < s.len() && s[i..i+7] == vec!['d', 'o', 'n', '\'', 't', '(', ')'] {
+    while i < s.len() {
+        if i + 7 < s.len() && s[i..i + 7] == vec!['d', 'o', 'n', '\'', 't', '(', ')'] {
             enabled = false;
             i += 7;
         }
-        if i + 4 < s.len() && s[i..i+4] == vec!['d', 'o', '(', ')'] {
+        if i + 4 < s.len() && s[i..i + 4] == vec!['d', 'o', '(', ')'] {
             enabled = true;
             i += 4;
         }
@@ -32,8 +32,7 @@ fn main() {
         if j - i != 4 {
             if i == j {
                 i = i + 1;
-            }
-            else {
+            } else {
                 i = j;
             }
             continue;

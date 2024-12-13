@@ -31,12 +31,10 @@ fn main() {
     println!("{}", ans);
 }
 
-fn cal_sides(pos: &Vec<(i32, i32, i32)>) -> i32{
+fn cal_sides(pos: &Vec<(i32, i32, i32)>) -> i32 {
     let mut hm: HashMap<(i32, i32, i32), i32> = HashMap::new();
     for p in pos {
-        hm.entry(*p)
-            .and_modify(|f| *f += 1)
-            .or_insert(1);
+        hm.entry(*p).and_modify(|f| *f += 1).or_insert(1);
     }
     let mut res = 0;
     for p in pos {
@@ -65,8 +63,7 @@ fn cal_sides(pos: &Vec<(i32, i32, i32)>) -> i32{
                 if *entry == 0 {
                     hm.remove_entry(&(nx, ny, t));
                 }
-            }
-            else {
+            } else {
                 break;
             }
             x = nx;
@@ -86,8 +83,7 @@ fn cal_sides(pos: &Vec<(i32, i32, i32)>) -> i32{
                 if *entry == 0 {
                     hm.remove_entry(&(nx, ny, t));
                 }
-            }
-            else {
+            } else {
                 break;
             }
             x = nx;
@@ -104,10 +100,16 @@ fn cal_sides(pos: &Vec<(i32, i32, i32)>) -> i32{
     return res;
 }
 
-const DX: [i32; 4] = [-1, 0, 1, 0,];
+const DX: [i32; 4] = [-1, 0, 1, 0];
 const DY: [i32; 4] = [0, 1, 0, -1];
 
-fn go(x: i32, y: i32, vis: &mut Vec<Vec<bool>>, grid: &Vec<Vec<char>>, pos: &mut Vec<(i32, i32, i32)>) -> i32{
+fn go(
+    x: i32,
+    y: i32,
+    vis: &mut Vec<Vec<bool>>,
+    grid: &Vec<Vec<char>>,
+    pos: &mut Vec<(i32, i32, i32)>,
+) -> i32 {
     let n = grid.len();
     let m = grid[0].len();
     vis[x as usize][y as usize] = true;
@@ -115,22 +117,27 @@ fn go(x: i32, y: i32, vis: &mut Vec<Vec<bool>>, grid: &Vec<Vec<char>>, pos: &mut
     for i in 0..4 {
         let nx = x + DX[i];
         let ny = y + DY[i];
-        if nx >= 0 && nx < n as i32 && ny >= 0 && ny < m as i32 
-            && !vis[nx as usize][ny as usize] 
-            && grid[x as usize][y as usize] == grid[nx as usize][ny as usize] {
+        if nx >= 0
+            && nx < n as i32
+            && ny >= 0
+            && ny < m as i32
+            && !vis[nx as usize][ny as usize]
+            && grid[x as usize][y as usize] == grid[nx as usize][ny as usize]
+        {
             let n_area = go(nx, ny, vis, grid, pos);
             area += n_area;
         }
-        if !(nx >= 0 && nx < n as i32 && ny >= 0 && ny < m as i32) 
-            || grid[x as usize][y as usize] != grid[nx as usize][ny as usize] {
-                let t = match i {
-                    0 => 0, 
-                    1 => 1,
-                    2 => 2,
-                    3 => 3,
-                    _ => panic!("unexpected value of i")
-                };
-                pos.push((nx, ny, t));
+        if !(nx >= 0 && nx < n as i32 && ny >= 0 && ny < m as i32)
+            || grid[x as usize][y as usize] != grid[nx as usize][ny as usize]
+        {
+            let t = match i {
+                0 => 0,
+                1 => 1,
+                2 => 2,
+                3 => 3,
+                _ => panic!("unexpected value of i"),
+            };
+            pos.push((nx, ny, t));
         }
     }
     return area;

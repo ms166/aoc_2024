@@ -2,15 +2,17 @@ use std::collections::HashMap;
 use std::fs;
 
 fn main() {
-    let contents = fs::read_to_string("./in")
-        .expect("Should have been able to read the file");
+    let contents = fs::read_to_string("./in").expect("Should have been able to read the file");
 
     let mut split_by_line = contents.split("\n").collect::<Vec<&str>>();
     split_by_line.pop();
     let mut left_elements = vec![];
     let mut right_elements = vec![];
     for e in split_by_line {
-        let c = e.split(" ").map(|x| x.parse::<i64>().unwrap()).collect::<Vec<i64>>();
+        let c = e
+            .split(" ")
+            .map(|x| x.parse::<i64>().unwrap())
+            .collect::<Vec<i64>>();
         left_elements.push(c[0]);
         right_elements.push(c[1]);
     }

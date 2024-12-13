@@ -14,8 +14,7 @@ fn main() {
     for (index, c) in input.chars().enumerate() {
         if index % 2 == 0 {
             f.push((c as i32 - '0' as i32, index as i32 / 2));
-        }
-        else {
+        } else {
             f.push((c as i32 - '0' as i32, -1));
         }
     }
@@ -37,12 +36,12 @@ fn main() {
                         f[i].1 = f[r].1;
                         f[r].1 = -1;
                     } else {
-                        let rem = f[i].0 - f[r].0; 
+                        let rem = f[i].0 - f[r].0;
                         f[i] = f[r];
                         f[r].1 = -1;
 
                         // insert empty space
-                        f.insert(i+1, (rem, -1));
+                        f.insert(i + 1, (rem, -1));
                         r += 1;
                     }
                     break;
@@ -63,10 +62,9 @@ fn main() {
             if v.1 != -1 {
                 ans += v.1 as i64 * nc2((v.0 - 1) as i64) as i64;
             }
-        }
-        else {
+        } else {
             if v.1 != -1 {
-                ans += v.1 as i64 * (nc2((last + (v.0-1) as i64) as i64) - nc2(last-1));
+                ans += v.1 as i64 * (nc2((last + (v.0 - 1) as i64) as i64) - nc2(last - 1));
             }
         }
         last += v.0 as i64;
