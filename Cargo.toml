@@ -1,0 +1,102 @@
+[package]
+name = "aoc_2024"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "day-1-part-1"
+path = "solutions/day-1/part-1.rs"
+
+[[bin]]
+name = "day-1-part-2"
+path = "solutions/day-1/part-2.rs"
+
+[[bin]]
+name = "day-2-part-2"
+path = "solutions/day-2/part-2.rs"
+
+[[bin]]
+name = "day-3-part-1"
+path = "solutions/day-3/part-1.rs"
+
+[[bin]]
+name = "day-3-part-2"
+path = "solutions/day-3/part-2.rs"
+
+[[bin]]
+name = "day-4-part-1"
+path = "solutions/day-4/part-1.rs"
+
+[[bin]]
+name = "day-4-part-2"
+path = "solutions/day-4/part-2.rs"
+
+[[bin]]
+name = "day-5-part-1"
+path = "solutions/day-5/part-1.rs"
+
+[[bin]]
+name = "day-5-part-2"
+path = "solutions/day-5/part-2.rs"
+
+[[bin]]
+name = "day-6-part-1"
+path = "solutions/day-6/part-1.rs"
+
+[[bin]]
+name = "day-6-part-2"
+path = "solutions/day-6/part-2.rs"
+
+[[bin]]
+name = "day-7-part-2"
+path = "solutions/day-7/part-2.rs"
+
+[[bin]]
+name = "day-8-part-1"
+path = "solutions/day-8/part-1.rs"
+
+[[bin]]
+name = "day-8-part-2"
+path = "solutions/day-8/part-2.rs"
+
+[[bin]]
+name = "day-9-part-1"
+path = "solutions/day-9/part-1.rs"
+
+[[bin]]
+name = "day-9-part-2"
+path = "solutions/day-9/part-2.rs"
+
+[[bin]]
+name = "day-10-part-1"
+path = "solutions/day-10/part-1.rs"
+
+[[bin]]
+name = "day-10-part-2"
+path = "solutions/day-10/part-2.rs"
+
+[[bin]]
+name = "day-11-part-1"
+path = "solutions/day-11/part-1.rs"
+
+[[bin]]
+name = "day-11-part-2"
+path = "solutions/day-11/part-2.rs"
+
+[[bin]]
+name = "day-12-part-1"
+path = "solutions/day-12/part-1.rs"
+
+[[bin]]
+name = "day-12-part-2"
+path = "solutions/day-12/part-2.rs"
+
+[[bin]]
+name = "day-13-part-1"
+path = "solutions/day-13/part-1.rs"
+
+[[bin]]
+name = "day-13-part-2"
+path = "solutions/day-13/part-2.rs"
+
+[dependencies]
