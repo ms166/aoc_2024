@@ -49,6 +49,5 @@ fn dfs(x: usize, y: usize, grid: &Vec<Vec<char>>, vis: &mut Vec<Vec<bool>>) -> i
             cnt += dfs(nx as usize, ny as usize, grid, vis);
         }
     }
-    vis[x][y] = false;
     return cnt;
 }
