@@ -79,19 +79,19 @@ fn main() {
 }
 
 fn process(ax: i64, ay: i64, bx: i64, by: i64, tx: i64, ty: i64) -> i64 {
-    let det_denom = ax * by - bx * ay;
-    if det_denom == 0 {
+    let determinant = ax * by - bx * ay;
+    if determinant == 0 {
         return 0;
     }
-    if (by * tx - bx * ty) % det_denom != 0 {
+    if (by * tx - bx * ty) % determinant != 0 {
         return 0;
     }
-    if (-ay * tx + ax * ty) % det_denom != 0 {
+    if (-ay * tx + ax * ty) % determinant != 0 {
         return 0;
     }
     let (u, v) = (
-        (by * tx - bx * ty) / det_denom,
-        (-ay * tx + ax * ty) / det_denom,
+        (by * tx - bx * ty) / determinant,
+        (-ay * tx + ax * ty) / determinant,
     );
     return u * 3 + v;
 }
