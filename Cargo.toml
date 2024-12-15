@@ -107,4 +107,12 @@ path = "solutions/day-14/part-1.rs"
 name = "day-14-part-2"
 path = "solutions/day-14/part-2.rs"
 
+[[bin]]
+name = "day-15-part-1"
+path = "solutions/day-15/part-1.rs"
+
+[[bin]]
+name = "day-15-part-2"
+path = "solutions/day-15/part-2.rs"
+
 [dependencies]
