@@ -30,7 +30,7 @@ fn main() {
     let n = grid.len();
     let m = grid[0].len();
 
-    // djikstra
+    // dijkstra
     let mut dist = vec![vec![vec![i32::MAX; 4]; m]; n];
     let mut ts: BTreeSet<(i32, usize, usize, usize)> = BTreeSet::new();
     let mut par: Vec<Vec<Vec<HashSet<(usize, usize, usize)>>>> =
@@ -100,11 +100,9 @@ fn main() {
             dfs(ex, ey, i, &par, &mut vis);
             for x in 0..n {
                 for y in 0..m {
-                    all_vis[x][y] = all_vis[x][y]
-                        || vis[x][y][0]
-                        || vis[x][y][1]
-                        || vis[x][y][2]
-                        || vis[x][y][3];
+                    for k in 0..4 {
+                        all_vis[x][y] = all_vis[x][y] || vis[x][y][k];
+                    }
                 }
             }
         }
