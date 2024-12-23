@@ -9,7 +9,6 @@ fn main() {
     let mut s_to_i: HashMap<String, usize> = HashMap::new();
     let mut i_to_s: HashMap<usize, String> = HashMap::new();
 
-    let mut edges = vec![];
     let mut c = 0;
     while stdin().read_line(&mut input).unwrap() != 0 {
         let nodes: Vec<String> = input.trim().split('-').map(|x| x.to_string()).collect();
@@ -30,7 +29,6 @@ fn main() {
         }
         adj[u].insert(v);
         adj[v].insert(u);
-        edges.push((u, v));
         input.clear();
     }
     let mut best_all_set = HashSet::new();
